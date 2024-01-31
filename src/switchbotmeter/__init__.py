@@ -149,6 +149,7 @@ class Device:
         self.data = {
             "model": hexv[2:3].decode(),
             "mode": hexv[3:4].hex(),
+            "batt": int(hexv[4:5].hex(), 16),
             "date": datetime.datetime.now(tz=datetime.timezone.utc),
             "temp": int(hexv[6:7].hex(), 16) - 128 + (hexv[5] / 10),
             "humidity": hexv[7],
